@@ -1,0 +1,10 @@
+<h1>画像投稿フォーム</h1>
+<%= form_with model: @post, local:true do |f| %>
+  <h4>画像</h4>
+  <%= f.attachment_field :image %>
+  <h4>ショップ名</h4>
+  <%= f.text_field :shop_name %>
+  <h4>説明</h4>
+  <%= f.text_area :introduction %>
+  <%= f.submit '投稿する' %>
+<% end %>
