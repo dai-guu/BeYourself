@@ -1,0 +1,24 @@
+
+
+<div>
+  <h3><%= @user.name %></h3>
+  <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+
+
+   <% if @user.id == current_user.id %>
+    <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
+   <% end %>
+</div>
+
+<div>
+  <% @post_images.each do |post_image| %>
+  <%= link_to post_image_path(post_image.id) do %>
+    <%= attachment_image_tag post_image, :image %>
+  <% end %>
+  <p>投稿ユーザー画像：<%= image_tag('sample-author1.jpg') %></p>
+  <p>ショップ名：<%= post_image.title %></p>
+  <p>説明：<%= post_image.caption %></p>
+  <p>ユーザーネーム：<%= post_image.user.name %></p>
+</div>
+<% end %>
+<%= paginate @post_images %>
