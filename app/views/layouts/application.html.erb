@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Beyourself</title>
+    <title>Be yourself</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,17 @@
   </head>
 
   <body>
+       <header>  <!--ヘッダーデザイン-->
+      	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      	<div class="container">
+      	 <a class="navbar-brand" href="/">Be yourself</a>
+      	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+         </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+           <ul class="navbar-nav ml-auto">
+
+
     <% if user_signed_in? %>
 
       <li>
@@ -32,6 +43,10 @@
         <%= link_to "ログイン", new_user_session_path %>
       </li>
     <% end %>
+   </ul>
+  </div>
+ </nav>
+</header>
 
 
 
