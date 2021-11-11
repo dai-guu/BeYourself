@@ -10,15 +10,17 @@
   </head>
 
   <body>
+    <!--<div class="grid-container">-->
        <header>  <!--ヘッダーデザイン-->
       	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      	<div class="container">
+        <div class="container">
       	 <a class="navbar-brand" href="/">Be yourself</a>
-      	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-         </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-           <ul class="navbar-nav ml-auto">
+      	     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+            </button>
+         <div class="collapse navbar-collapse" id="navbarNavDropdown">
+         <ul class="navbar-nav ml-auto">
+
 
 
     <% if user_signed_in? %>
@@ -43,13 +45,20 @@
         <%= link_to "ログイン", new_user_session_path %>
       </li>
     <% end %>
-   </ul>
-  </div>
- </nav>
-</header>
+    </ul>
+    </div>
+    </div>
+  </nav>
+ </header>
+<!--<nav>ナビ</nav>-->
 
-
-
+    <article>
     <%= yield %>
-  </body>
+    </article>
+    <!--<aside>サイドバー</aside>-->
+
+    <!--<footer>フッター</footer>-->
+<!--  </div>-->
+<!--</div>-->
+</body>
 </html>

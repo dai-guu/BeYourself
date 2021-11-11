@@ -1,4 +1,6 @@
 <div>
+  <%= render 'users/userinfo', user: @user %>
+
   <%= attachment_image_tag @post_image, :image, format: 'jpeg', fallback: "no_image.jpg", size: '200x200' %>
   <p>タイトル：<%= @post_image.title %></p>
   <p>説明：<%= @post_image.caption %></p>
@@ -8,4 +10,15 @@
   <% if @post_image.user == current_user %>
     <%= link_to "削除", post_image_path(@post_image), method: :delete %>
   <% end %>
+  <%= render "detail",post_image: @post_image %>
+</div>
+
+<div id="comments-area"><%= render 'post_comments/index', post_comments: @post_image.post_comments %></div>
+
+
+<div>
+<%= form_with(model:[@post_image, @post_comment], remote: true) do |f| %>
+  <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
+  <%= f.submit "送信する" %>
+<% end %>
 </div>

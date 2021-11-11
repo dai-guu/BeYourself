@@ -1,0 +1,32 @@
+<h2>User info</h2>
+<%= attachment_image_tag user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: '50x50' %>
+
+<table class="table">
+    <tbody>
+      <tr>
+        <th>name</th> <!--ユーザー名表示-->
+        <th><%= user.name %></th>
+      </tr>
+      <!--<tr>-->
+      <!--  <th>introduction</th> <!--自己紹介文-->
+      <!--  <th><%#= user.introduction %></th>-->
+      <!--</tr>-->
+
+        <tr>
+          <th>follows</th>
+          <th><%= link_to user.followings.count, user_followings_path(user.id) %></th>  <!--user_relationships_path かも-->
+        </tr>
+        <tr>
+          <th>followers</th>
+          <th><%= link_to user.followers.count, user_followers_path(user.id) %></th>
+        </tr>
+       </tbody>
+  </table>
+
+       <div class="row">
+            <% if user != current_user %>
+             <%= render "relationships/info", user: user %>   <!--info.html.erb(フォローボタン)の呼び出し-->
+            <% else %>
+             <%= link_to "", edit_user_path(user.id), class: "btn btn-outline-secondary btn-block fas fa-user-cog" %>
+            <% end %>
+       </div>

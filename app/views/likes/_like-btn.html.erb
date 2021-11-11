@@ -1,0 +1,11 @@
+<% if post_image.favorited_by?(current_user) %>
+    <%= link_to post_image_likes_path(post_image), method: :delete, remote: true do %>
+      <i class="fa fa-heart unlike-btn" aria-hidden="true" style="color: red;"></i>
+      <%= post_image.likes.count %>
+    <% end %>
+  <% else %>
+    <%= link_to post_image_likes_path(post_image), method: :post, remote: true do %>
+      <i class="fa fa-heart like-btn" aria-hidden="true"></i>
+      <%= post_image.likes.count %>
+    <% end %>
+  <% end %>
