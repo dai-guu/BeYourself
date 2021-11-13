@@ -24,7 +24,7 @@
 https://drive.google.com/file/d/1tUI0QNbg86je1qo49XgXcrggSUhbHpvc/view?usp=sharing
 * テーブル定義書
 https://docs.google.com/spreadsheets/d/164f5x04bI6Ty0t6-7Ia5jF9b27kbyjRlZKr1VrEaT0s/edit?usp=sharing
-＊アプリケーション詳細設計書
+＊ アプリケーション詳細設計書
 https://docs.google.com/spreadsheets/d/1DxR40klustQ0XFzyuXA7sB2Bca8NFjuZ/edit?usp=sharing&ouid=112189750112024942688&rtpof=true&sd=true
 
 
