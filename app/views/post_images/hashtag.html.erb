@@ -1,0 +1,64 @@
+<div class="row">
+        <% if params[:name] == nil %>
+
+        <% else %>
+        <div class= "col-xs-12 col-lg-12 col-md-12 col-sm-12">
+            <div class="hashtag-post-box">
+                <h3 class="search-title">#<%= @hashtag.hashname %>:  <%= @post_image.count %> 件 </h3>
+                <div class="flex-box">
+                <% @post_image.each do |post_image| %>
+                    <div class= "post-image-index-post-box">
+                        <p class="index-post-box-top">
+                            <%= post_image.created_at.strftime("%Y/%m/%d") %>
+                        </p>
+                        <span class='far fa-comments index-comment-count' id='comment-count_<%= post_image.id %>' style="color: #777777;">
+                            <%#= render 'post_comments/comment-count', post_image:post_image %>
+                        </span>
+                        <span id = "favorite-button_<%= post_image.id %>"class="post-box-top-favorite">
+                            <%#= render 'likes/like',post_image: post_image %>
+                        </span>
+                        <%= link_to post_image_path(post_image),data: {"turbolinks" => false}  do %>
+                            <ul class="slider">
+                                    <% @post_image.each do |post| %>
+                                        <li>
+                                        <%= attachment_image_tag post, :image ,size:'430x360', format:'jpg',class:"image" %>
+                                    </li>
+                                <% end %>
+                            </ul>
+                        <% end %>
+                        <p class="hashtag-post-box-name">
+                            <%= link_to user_path(post_image.user) do %>
+                                <%= attachment_image_tag post_image.user, :profile_image,size:'30x30', format:'jpg',fallback:'no_image.jpg',class:'min-image' %>
+                                <span class="index-post-box-user"><%= post_image.user.name %></span>
+                            <% end %>
+                        </p>
+                        <div class="image-show-body-hash" style="padding:2%">
+                            <%= simple_format(post_image.body.truncate(50))%>
+                            <% if post_image.body.length > 50 %>
+                                <span class="text-prev"><%= link_to '続きを読む', post_image_path(post_image), data: {"turbolinks" => false} %></span>
+
+                            <% end %>
+                        </div>
+                    </div>
+                <% end %>
+                </div>
+            </div>
+            <div class="image-index-pagination" data-turbolinks="false">
+                <%= paginate @post_image,class:"paginate" %>
+            </div>
+        </div>
+        <% end %>
+    </div>
+    <div class="row">
+        <div class= "col-xs-12 col-lg-12 col-md-12 col-sm-12">
+            <div class= "hashtag-name">
+                <% @hashtags.sort.reverse.each do |count| %>
+                        <% count[1].each do |hashtag| %>
+                        <p><%= link_to  "##{hashtag.hashname} (#{hashtag.post_images.count}) 件","/post_image/hashtag/#{hashtag.hashname}",data: {"turbolinks" => false} %>
+                        </p>
+                        <% end %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>

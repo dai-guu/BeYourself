@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resource :likes, only: [:create, :destroy]
   end
 
-
+    get '/post_image/hashtag/:name' => 'post_images#hashtag'
+    get '/post_image/hashtag' => 'post_images#hashtag'
 
 end

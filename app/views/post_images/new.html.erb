@@ -1,10 +1,53 @@
-<h1>画像投稿フォーム</h1>
-<%= form_with model: @post_image, local:true do |f| %>
-  <h4>画像</h4>
-  <%= f.attachment_field :image %>
-  <h4>タイトル</h4>
-  <%= f.text_field :title %>
-  <h4>説明</h4>
-  <%= f.text_area :caption %>
-  <%= f.submit '投稿' %>
-<% end %>
+<!--<h1>画像投稿フォーム</h1>-->
+<!--<%#= form_with model: @post_image, local:true do |f| %>-->
+<!--  <h4>画像</h4>-->
+<!--  <%#= f.attachment_field :image %>-->
+  <!--<h4>タイトル</h4>-->
+  <!--<%#= f.text_field :title %>-->
+<!--  <h4>説明</h4>-->
+<!--  <%#= f.text_area :caption %>-->
+<!--  <%#= f.submit '投稿' %>-->
+<!--<%# end %>-->
+
+<div class= "row">
+    <div class="col-lg-2 col-md-2">
+    </div>
+    <div class="col-xs-12 col-lg-8 col-md-8 col-sm-12">
+        <div class= "postimage-new-box">
+            <% if @post_image.errors.any? %>
+                <div id="error_explanation">
+                    <h3><%= @post_image.errors.count %>件の入力エラーにより、投稿出来ませんでした</h3>
+                    <ul>
+                        <% @post_image.errors.full_messages.each do |msg| %>
+                        <li><%= msg %></li>
+                        <% end %>
+                    </ul>
+                </div>
+            <% end %>
+            <h3>新規投稿</h3>
+            <div class="previw">
+            </div>
+            <%= form_with model:@post_image, local: true do |f| %>
+                <div class="attachment-field">
+                    <p>画像を選択</p>
+                    <%= f.attachment_field :image %>
+                </div>
+                <br>
+                <br>
+                <div class= "postimage-body-box">
+                    <p>投稿の詳細を入力してください</p>
+                    <%= f.text_area :body, size:"55x12" %>
+                    <br>
+                    <p>ハッシュタグ入力欄</p>
+                    <%= f.text_area :hashbody, size:"55x3" %>
+                    <br>
+                    <div class= "postimage-new">
+                    <%= f.submit "新規投稿" ,class:'postimage-new-button' %>
+                    </div>
+            <% end %>
+                </div>
+        </div>
+    </div>
+    <div class="col-lg-2 col-md-2">
+    </div>
+</div>

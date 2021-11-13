@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_11_045943) do
+ActiveRecord::Schema.define(version: 2021_11_13_001307) do
+
+  create_table "hashtag_post_images", force: :cascade do |t|
+    t.integer "post_image_id"
+    t.integer "hashtag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["hashtag_id"], name: "index_hashtag_post_images_on_hashtag_id"
+    t.index ["post_image_id"], name: "index_hashtag_post_images_on_post_image_id"
+  end
+
+  create_table "hashtags", force: :cascade do |t|
+    t.string "hashname"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["hashname"], name: "index_hashtags_on_hashname", unique: true
+  end
 
   create_table "likes", force: :cascade do |t|
     t.integer "user_id"
@@ -30,10 +46,11 @@ ActiveRecord::Schema.define(version: 2021_11_11_045943) do
   create_table "post_images", force: :cascade do |t|
     t.string "title"
     t.string "image_id"
-    t.text "caption"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "hashbody"
+    t.text "body"
   end
 
   create_table "posts", force: :cascade do |t|

@@ -3,14 +3,16 @@
 
   <%= attachment_image_tag @post_image, :image, format: 'jpeg', fallback: "no_image.jpg", size: '200x200' %>
   <p>タイトル：<%= @post_image.title %></p>
-  <p>説明：<%= @post_image.caption %></p>
-  <p>ユーザーネーム：<%= @post_image.user.name %></p>
+  <p>説明：<%= @post_image.body %></p>
+
   <p>投稿日時：<%= @post_image.created_at.strftime('%Y/%m/%d') %></p>
-  <%= link_to "編集", edit_post_image_path(@post_image) %>
-  <% if @post_image.user == current_user %>
+
+  <% if user_signed_in? && current_user.id == @post_image.user_id %>
+    <%= link_to "編集", edit_post_image_path(@post_image) %>
     <%= link_to "削除", post_image_path(@post_image), method: :delete %>
   <% end %>
-  <%= render "detail",post_image: @post_image %>
+
+    <%= render "detail",post_image: @post_image %>
 </div>
 
 <div id="comments-area"><%= render 'post_comments/index', post_comments: @post_image.post_comments %></div>
@@ -22,3 +24,5 @@
   <%= f.submit "送信する" %>
 <% end %>
 </div>
+
+<%= render_with_hashtags(@post_image.hashbody) %>
