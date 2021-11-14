@@ -12,7 +12,7 @@ has_many :post_comments, dependent: :destroy
   has_many :hashtag_post_images, dependent: :destroy
   has_many :hashtags, through: :hashtag_post_images
 
-  
+
     after_create do
     post_image = PostImage.find_by(id: id)
     # hashbodyに打ち込まれたハッシュタグを検出
@@ -34,6 +34,6 @@ has_many :post_comments, dependent: :destroy
     end
   end
 
-  
+
 
 end
