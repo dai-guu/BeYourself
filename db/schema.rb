@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_13_001307) do
+ActiveRecord::Schema.define(version: 2021_11_15_183326) do
 
   create_table "hashtag_post_images", force: :cascade do |t|
     t.integer "post_image_id"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 2021_11_13_001307) do
     t.datetime "updated_at", null: false
     t.text "hashbody"
     t.text "body"
+    t.string "category"
   end
 
   create_table "posts", force: :cascade do |t|

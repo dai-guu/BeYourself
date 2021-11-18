@@ -1,0 +1,23 @@
+<h1>Business</h1>
+<div class = "container">
+  <div class = "row">
+       <% @post_images.each do |post_image| %>
+       <% if post_image.category == "business" %>
+
+            <div class="col-lg-3 col-md-6 mb-4">
+               <%= link_to post_image_path(post_image.id) do %>
+               <%= attachment_image_tag post_image, :image, format: 'jpeg', fallback: "no_image.jpg", size: '200x250' %>
+             <% end %>
+
+           <p>投稿ユーザー画像：<%= attachment_image_tag post_image.user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: '50x50' %></p>
+           <p>タイトル：<%= post_image.title %></p>
+           <p>説明：<%= post_image.body %></p>
+           <p>ユーザーネーム：<%= post_image.user.name %></p>
+
+           <p class="like_<%= post_image.id %>"><%= render "likes/like-btn", post_image: post_image %></p>
+        </div>
+     <% end %>
+   <% end %>
+
+  </div>
+</div>

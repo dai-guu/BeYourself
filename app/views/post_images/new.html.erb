@@ -41,6 +41,9 @@
                     <p>ハッシュタグ入力欄</p>
                     <%= f.text_area :hashbody, size:"55x3" %>
                     <br>
+                    <%#= f.label :content,"内容" %>
+                    <%#= f.text_field :content %>
+                    <%= f.select :category, [["すべてのカテゴリー", "all"], ["Women", "women"], ["Men", "men"], ["Kids", "kids"], ["Business", "business"]], include_blank: "カテゴリーを選択してください" %>
                     <div class= "postimage-new">
                     <%= f.submit "新規投稿" ,class:'postimage-new-button' %>
                     </div>

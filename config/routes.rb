@@ -18,4 +18,9 @@ Rails.application.routes.draw do
     get '/post_image/hashtag/:name' => 'post_images#hashtag'
     get '/post_image/hashtag' => 'post_images#hashtag'
 
+    get 'post_images/category/all' => 'post_images#all'
+    get 'post_images/category/men' => 'post_images#men'
+    get 'post_images/category/women' => 'post_images#women'
+    get 'post_images/category/kids' => 'post_images#kids'
+    get 'post_images/category/business' => 'post_images#business'
 end

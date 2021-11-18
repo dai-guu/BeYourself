@@ -1,6 +1,11 @@
 <div>
   <%= render 'users/userinfo', user: @user %>
 
+
+
+
+
+
   <%= attachment_image_tag @post_image, :image, format: 'jpeg', fallback: "no_image.jpg", size: '200x200' %>
   <p>タイトル：<%= @post_image.title %></p>
   <p>説明：<%= @post_image.body %></p>

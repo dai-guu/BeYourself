@@ -1,14 +1,11 @@
 
 
 <div>
-  <h3><%= @user.name %></h3>
-  <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
-
-
-   <% if @user.id == current_user.id %>
-    <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
-   <% end %>
+    <%= render 'users/userinfo', user: @user %>
 </div>
+
+<%= button_to 'ユーザー登録', user_path(current_user.id), method: :get %>
+
 
 <div>
   <% @post_images.each do |post_image| %>

@@ -54,10 +54,40 @@ class PostImagesController < ApplicationController
     end
  end
 
+
+  def all
+    @alls = PostImage.where(category:"all")
+    @post_images = PostImage.page(params[:page]).reverse_order
+  end
+
+
+  def men
+    @mens = PostImage.where(category:"men")
+    @post_images = PostImage.page(params[:page]).reverse_order
+  end
+
+  def women
+    @womens = PostImage.where(category:"women")
+    @post_images = PostImage.page(params[:page]).reverse_order
+  end
+
+
+  def kids
+    @kidss = PostImage.where(category:"kids")
+    @post_images = PostImage.page(params[:page]).reverse_order
+  end
+
+
+  def business
+    @businesss = PostImage.where(category:"business")
+    @post_images = PostImage.page(params[:page]).reverse_order
+  end
+
+
   private
 
   def post_image_params
-    params.require(:post_image).permit(:title, :body, :hashbody, :user_id, :image, hashtag_ids: [])
+    params.require(:post_image).permit(:title, :body, :hashbody, :category, :user_id, :image, hashtag_ids: [])
   end
 
 

@@ -11,3 +11,30 @@
 
 
 
+
+
+.List {
+  display: flex;
+  justify-content: center
+}
+.List-Item {
+  position: relative;
+  color: #808080;
+  font-size: 20px;
+  list-style: none;
+}
+.List-Item:before {
+  position: absolute;
+  top: 50%;
+  content: "|";
+  display: block;
+  transform: translate(-50%, -50%);
+  color: #808080;
+}
+.List-Item-Link {
+  padding-left: 40px;
+  padding-right: 40px;
+  text-decoration: none;
+  color: inherit;
+}
+
