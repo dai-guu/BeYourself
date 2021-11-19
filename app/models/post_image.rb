@@ -12,6 +12,11 @@ has_many :post_comments, dependent: :destroy
   has_many :hashtag_post_images, dependent: :destroy
   has_many :hashtags, through: :hashtag_post_images
 
+  has_many :favorites, dependent: :destroy
+  def bookmarked_by?(user)
+    favorites.where(user_id: user.id).exists?
+  end
+  has_one_attached :image
 
     after_create do
     post_image = PostImage.find_by(id: id)

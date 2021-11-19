@@ -4,7 +4,66 @@
     <%= render 'users/userinfo', user: @user %>
 </div>
 
-<%= button_to 'ユーザー登録', user_path(current_user.id), method: :get %>
+<%#= button_to 'ユーザー登録', user_path(current_user.id), method: :get %>
+
+     <!--<div>-->
+     <!--   <%# @favorites.each do |f| %>-->
+     <!--       <%#= link_to user_path(post_images.user) do %>-->
+     <!--           <%#= attachment_image_tag @post_image.user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: '40x40' %><br>-->
+     <!--           <%# post_image.user.name %>-->
+     <!--         <%# end %>-->
+     <!--       <p><%#= f.post_image.user.name %></p>-->
+
+
+
+     <!--       <p><%#= f.post_image.title %></p>-->
+
+
+     <!--       <p><%#= f.post_image.body %></p>-->
+
+     <!--     <%# end %>-->
+     <!-- </div>-->
+
+<% if @favorites.present? %>
+    <ul class="relative-post_image-lists">
+    <% @favorites.each do |favorite| %>
+      <li class='post_image-list'>
+        <%= link_to post_image_path(favorite.id) do %>
+
+
+
+          <div class="relative-post_image-evaluation">
+            <span>評価：</span>
+              <span id="star-rate-<%= favorite.id %>"></span>
+              <script>
+                $('#star-rate-<%= favorite.id %>').raty({
+                  size: 36,
+
+
+
+                  half: true,
+                  readOnly: true,
+
+                });
+              </script>
+
+          </div>
+          <div class='user-img-content'>
+
+            <%= link_to favorite.user.name, user_path(favorite.user.id) %>
+          </div>
+          <div class="relative-post_image-date">
+            更新日時：<%= favorite.created_at.strftime("%Y.%m.%d") %>
+          </div>
+        <% end %>
+      </li>
+    <% end %>
+    </ul>
+  <% end %>
+
+
+
+
 
 
 <div>
@@ -17,4 +76,4 @@
 
 </div>
 <% end %>
-<%= paginate @post_images %>
+<%#= paginate @post_images %>

@@ -18,7 +18,23 @@
   <% end %>
 
     <%= render "detail",post_image: @post_image %>
+
 </div>
+
+    <%# if @post_image.bookmarked_by?(current_user) %>
+      <%#= link_to "お気に入りを外す", post_image_favorites_path(@post_image), method: :delete %></td>
+    <%# else %>
+      <%#= link_to "お気に入り", post_image_favorites_path(@post_image), method: :post %></td>
+    <%# end %>
+   <div>
+    <%= render "star",post_image: @post_image %>
+   <div>
+<!--<div class='star-btn' id="favorite_<%#= @post_image.id %>">-->
+<!--  <%#= render "favorites/favorite", post: @post_image %>-->
+<!--</div>-->
+
+
+
 
 <div id="comments-area"><%= render 'post_comments/index', post_comments: @post_image.post_comments %></div>
 

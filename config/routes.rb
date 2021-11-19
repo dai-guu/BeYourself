@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show,:edit,:update,:unsubscribe,:withdraw] do
    resource :relationships, only: [:create, :destroy]
+
     get 'followings' => 'relationships#followings', as: 'followings'
     get 'followers' => 'relationships#followers', as: 'followers'
   end
@@ -13,7 +14,13 @@ Rails.application.routes.draw do
   resources :post_images do
     resources :post_comments, only: [:create, :destroy]
     resource :likes, only: [:create, :destroy]
+    resource :favorites, only: [:create, :destroy]
+
   end
+
+
+
+
 
     get '/post_image/hashtag/:name' => 'post_images#hashtag'
     get '/post_image/hashtag' => 'post_images#hashtag'
