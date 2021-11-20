@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
+
+  }
+  get 'users/:id/profile', to: 'users#show', as: 'user_profile'
   root to:'homes#top'
   get 'about' => 'homes#about'
 

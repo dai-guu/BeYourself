@@ -10,3 +10,9 @@
 
   <%= f.submit "変更を保存" %>
 <% end %>
+
+<div class="user-edit">
+    <% if user_signed_in? && @user == current_user %>
+        <%= link_to "アカウント情報編集", edit_user_registration_path, class: "user-edit-btn" %>
+    <% end %>
+</div>
