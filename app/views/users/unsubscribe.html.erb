@@ -1,2 +1,12 @@
-<h1>Users#unsubscribe</h1>
-<p>Find me in app/views/users/unsubscribe.html.erb</p>
+<div class = "container">
+  <div class = "row">
+    <div class="px-3 mx-auto mt-5"><div>
+     <h2>本当に退会しますか？</h2>
+      <div>
+       <p>退会する場合は、『退会する』をクリックしてください。</p>
+      </div>
+    <div>
+     <%= link_to '退会しない', root_path, class: 'btn btn-primary' %>
+     <%= link_to "退会する", user_users_withdraw_path(current_user), method: :patch, class: 'btn btn-danger' %>
+  </div>
+</div>

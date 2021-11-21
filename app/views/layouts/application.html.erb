@@ -12,9 +12,9 @@
   <body>
     <!--<div class="grid-container">-->
        <header>  <!--ヘッダーデザイン-->
-      	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      	<nav class="navbar navbar-expand-md navbar-light" style="background-color:#ffefd5;">
         <div class="container">
-      	 <a class="navbar-brand" href="/">Be yourself</a>
+      	  <a href="/" class="navbar-brand">Be yourself</a>
       	     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                <span class="navbar-toggler-icon"></span>
             </button>
@@ -25,31 +25,50 @@
 
     <% if user_signed_in? %>
 
-      <li>
-        <%= link_to '投稿フォーム', new_post_image_path %>
-      </li>
+        <li>
+          <%= link_to new_post_image_path, class: "nav-link text-dark" do %>
+          <i class="fas fa-images"></i> 投稿する
+         <% end %>
+        </li>
 
-      <li>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      </li>
+        <li>
+          <%= link_to destroy_user_session_path, method: :delete, class: "nav-link text-dark" do %>
+          <i class="fas fa-sign-out-alt"></i> Logout
+          <% end %>
+        </li>
 
-      <li>
-      <%= link_to 'マイページ', user_path(current_user.id) %>
-     </li>
+        <li>
+          <%= link_to user_path(current_user.id), class:"nav-link text-dark" do %>
+          <i class="fas fa-users"></i> My page
+         <% end %>
+       </li>
+
+        <li>
+            <%= link_to post_images_path, class: "nav-link text-dark" do %>
+              <i class="fas fa-list-alt"></i> みんなの投稿
+            <% end %>
+        </li>
 
     <% else %>
-      <li>
-        <%= link_to "新規登録", new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to "ログイン", new_user_session_path %>
-      </li>
-      <li>
-        <%= link_to "about", class: "nav-link text-light" do%>
+         <li>
+           <%= link_to new_user_registration_path, class: 'nav-link text-dark' do%>
+             <i class="fas fa-user-plus"></i> sign up
+            <% end %>
+         </li>
+
+          <li>
+            <%= link_to new_user_session_path, class: "nav-link text-dark" do %>
+              <i class="fas fa-sign-in-alt"></i> Login
+            <% end %>
+          </li>
+
+           <li>
+             <%= link_to "about", class: "nav-link text-dark" do%>
                <i class="fas fa-link"></i> About
-               <% end %>
-      </li>
-    <% end %>
+             <% end %>
+           </li>
+
+      <% end %>
     </ul>
     </div>
     </div>

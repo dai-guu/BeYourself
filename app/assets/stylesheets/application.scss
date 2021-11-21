@@ -18,10 +18,27 @@
 @import 'font-awesome';
 
 
+
 * {
    margin: 0;
    padding: 0;
 }
+
+.card-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.img-box { width: 100%; }
+
+
+a{
+　text-decoration: none;
+}
+
+.navbar ul li a:hover {
+  text-decoration: underline;
+}
+
 
 
 
