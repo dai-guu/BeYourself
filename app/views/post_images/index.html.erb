@@ -1,9 +1,32 @@
 <%= render 'post_images/category' %> <br>
 
 <div class = "container">
+             <h2 class='title'>いいねランキング</h2>
+              <div class="d-flex justify-content-center mb-4">
+                <div class='post_image-card-contents'>
+                   <!--<h2 class='title'>いいねランキング</h2>-->
+                    <% @all_ranks.each.with_index(1) do |post_image, i| %>
+                    第<%= i %>位
+                    <%= link_to post_image_path(post_image.id) do %>
+                       <%= attachment_image_tag post_image, :image, format: 'jpeg', fallback: "no_image.jpg", size: '200x250' %>
+                     <% end %>
+                   <% end %>
+               </div>
+              </div>
+
   <div class = "row">
 
+
+
+
+
+
        <%= render 'post_images/index', post_images: @post_images%>
+
+
+
+
+
 
 
   </div>

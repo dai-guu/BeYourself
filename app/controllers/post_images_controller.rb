@@ -19,6 +19,7 @@ class PostImagesController < ApplicationController
 
   def index
     @post_images = PostImage.page(params[:page]).reverse_order
+    @all_ranks = PostImage.find(Like.group(:post_image_id).order('count(post_image_id) DESC').limit(3).pluck(:post_image_id))
   end
 
   def show
@@ -82,6 +83,13 @@ class PostImagesController < ApplicationController
     @businesss = PostImage.where(category:"business")
     @post_images = PostImage.page(params[:page]).reverse_order
   end
+
+  def ranking
+    @all_ranks = PostImage.find(Like.group(:post_image_id).order('count(post_image_id) DESC').limit(3).pluck(:post_image_id))
+    @post_images = PostImage.order("created_at DESC")
+  end
+
+
 
 
   private
