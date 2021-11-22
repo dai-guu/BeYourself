@@ -4,7 +4,7 @@
     <title>Be yourself</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -76,9 +76,9 @@
  </header>
 <!--<nav>ナビ</nav>-->
 
-    <article>
+    <main>
     <%= yield %>
-    </article>
+    </main>
     <!--<aside>サイドバー</aside>-->
 
     <!--<footer>フッター</footer>-->

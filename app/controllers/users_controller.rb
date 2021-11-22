@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @post_images = @user.post_images.page(params[:page]).reverse_order
 
-    # date_format = "%Y%m%d"
+
 
     @post_images = @user.post_images.order(created_at: :desc)
     favorites = Favorite.where(user_id: current_user.id).order(created_at: :desc).pluck(:post_image_id)

@@ -2,3 +2,62 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+// @media screen and ( min-width:500px) { /* sm */
+//   .card-columns {
+//       column-count: 1;
+//   }
+// }
+// @media screen and (min-width:768px) { /* md */
+//   .card {
+//       height: 280px;
+//   }
+//   .card-columns {
+//       column-count: 2;
+//   }
+// }
+// @media screen and (min-width:992px) { /* lg */
+//   .card {
+//       height: 260px;
+//   }
+// }
+// @media screen and (min-width:1200px)  { /* xl */
+//   .card {
+//       height: 300px;
+//   }
+// }
+
+.card-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+
+  @media(max-width: 1024px){
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @media(max-width: 768px){
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media(max-width: 425px){
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+
+.img-box { width: 100%; }
+
+.relative-post_image-lists{
+    display:flex;
+    flex-wrap: wrap;
+    padding: 10px;
+
+}
+
+.card{
+    padding: 10px;
+    margin: 20px 20px;
+}
+

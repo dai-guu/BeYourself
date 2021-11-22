@@ -1,6 +1,6 @@
 <% if post_image.bookmarked_by?(current_user) %>
      <%= link_to post_image_favorites_path(post_image), method: :delete, remote: true do %>
-       <i class="fas fa-star star-icon2"></i>
+       <i class="fas fa-star star-icon2" aria-hidden="true" style="color: #ffd700;"></i>
          <%= post_image.favorites.count %>
      <% end %>
 

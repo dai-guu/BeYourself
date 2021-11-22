@@ -3,50 +3,70 @@
     <%= render 'users/userinfo', user: @user %>
    </div>
 
+
       <p class="h5"><i class="fa fa-star" aria-hidden="true"></i>お気に入り</p>
+
+     <!--<div class="row">-->
+     <!--<div class= "d-flex justify-content-center">-->
         <% if @favorites.present? %>
          <ul class="relative-post_image-lists list-unstyled">
-          <% @favorites.each do |favorite| %>
-         <li class='post_image-list'>
-           <%= link_to post_image_path(favorite.id) do %>
 
-          <div class="relative-post_image-evaluation">
-            <span>評価：</span>
-              <span id="star-rate-<%= favorite.id %>"></span>
-              <script>
-                $('#star-rate-<%= favorite.id %>').raty({
-                  size: 36,
-                  half: true,
-                  readOnly: true,
-                });
-              </script>
-          </div>
+             <% @favorites.each do |favorite| %>
+           <div class="card">
 
-          <div class='user-img-content'>
+             <li class='post_image-list'>
+               <%= link_to post_image_path(favorite.id) do %>
 
-            <%= link_to favorite.user.name, user_path(favorite.user.id) %>
-          </div>
-          <div class="relative-post_image-date">
-            更新日時：<%= favorite.created_at.strftime("%Y.%m.%d") %>
-          </div>
-        <% end %>
-      </li>
-    <% end %>
-    </ul>
-  <% end %>
+               <div class="relative-post_image-evaluation">
+                  <span><i class="fas fa-tshirt" aria-hidden="true"></i></span>
+                    <span id="star-rate-<%= favorite.id %>"></span>
+                      <script>
+                         $('#star-rate-<%= favorite.id %>').raty({
+                           size: 36,
+                           half: true,
+                           readOnly: true,
+                          });
+                      </script>
+                  </div>
 
+                       <div class='user-img-content'>
+                          <%= link_to favorite.user.name, user_path(favorite.user.id) %>
+                       </div>
+                         <div class="relative-post_image-date">
+                           <i class="fas fa-calendar-alt"></i><%= favorite.created_at.strftime("%Y.%m.%d") %>
+                         </div>
+                    <% end %>
+              </li>
+            </div>
+           <% end %>
+
+         </ul>
+       <% end %> <!--if-->
+
+    <!--</div>-->
+   <!--</div>-->
+
+
+
+   <p class="h5"><i class="fa fa-tshirt" aria-hidden="true"></i>My coodinate</p>
     <div class="card-columns">
+
       <% @post_images.each do |post_image| %>
+
       <div class="card">
         <%= attachment_image_tag post_image, :image, format: 'jpeg', fallback: "no_image.jpg", class: "img-box" %>
         <div class="card-body">
+          <%= link_to post_image_path(post_image.id) do %>
           <h5 class="card-title">info：<%= post_image.body %></h5>
+          <% end %>
         </div>
       </div>
       <% end %>
     </div>
 
+
+
 </div><!-- /container -->
 
-<%#= paginate @post_images %>
+
 

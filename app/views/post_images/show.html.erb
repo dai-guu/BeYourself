@@ -1,49 +1,51 @@
-<div>
-  <%= render 'users/userinfo', user: @user %>
+<%= render 'users/userinfo', user: @user %>
 
+<div class="col-md-10 col-md-offset-1 mx-auto postShow-wrap">
+  <div class="row post-wrap">
+          <div class="col-md-8">
+            <div class="card-left">
 
+                   <div>
+                      <%= attachment_image_tag @post_image, :image, format: 'jpeg', fallback: "no_image.jpg", size: '600x700' %>
+                        <div class="btn-toolbar">
+                          <div class="btn-group">
+                            <%= render "detail",post_image: @post_image %>
+                            <%= render "star",post_image: @post_image %>
+                          </div>
+                        </div>
+                    </div>
 
+                   <div>
+                     <p>タイトル：<%= @post_image.title %></p>
+                     <p>説明：<%= @post_image.body %></p>
+                     <p>投稿日時：<%= @post_image.created_at.strftime('%Y/%m/%d') %></p>
+                       <% if user_signed_in? && current_user.id == @post_image.user_id %>
+                         <%= link_to "編集", edit_post_image_path(@post_image) %>
+                         <%= link_to "削除", post_image_path(@post_image), method: :delete %>
+                     <% end %>
+                    </div>
 
+              </div>
+             </div>
+                      <div class="col-md-4">
+                        <div class="card-right">
+                         <div class="card-right-comment">
+                          <div class="card-right-name">
+                                <div id="comments-area"><%= render 'post_comments/index', post_comments: @post_image.post_comments %></div>
+                                <div>
+                                   <%= form_with(model:[@post_image, @post_comment], remote: true) do |f| %>
+                                   <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
+                                   <%= f.submit "送信する" %>
+                                  <% end %>
+                                </div>
 
+                             <!--<%#= render_with_hashtags(@post_image.hashbody) %>-->
 
-  <%= attachment_image_tag @post_image, :image, format: 'jpeg', fallback: "no_image.jpg", size: '200x200' %>
-  <p>タイトル：<%= @post_image.title %></p>
-  <p>説明：<%= @post_image.body %></p>
+                           </div>
+                         </div>
+                        </div>
+                        <%= render_with_hashtags(@post_image.hashbody) %>
+                     </div>
 
-  <p>投稿日時：<%= @post_image.created_at.strftime('%Y/%m/%d') %></p>
-
-  <% if user_signed_in? && current_user.id == @post_image.user_id %>
-    <%= link_to "編集", edit_post_image_path(@post_image) %>
-    <%= link_to "削除", post_image_path(@post_image), method: :delete %>
-  <% end %>
-
-    <%= render "detail",post_image: @post_image %>
-
-</div>
-
-    <%# if @post_image.bookmarked_by?(current_user) %>
-      <%#= link_to "お気に入りを外す", post_image_favorites_path(@post_image), method: :delete %></td>
-    <%# else %>
-      <%#= link_to "お気に入り", post_image_favorites_path(@post_image), method: :post %></td>
-    <%# end %>
-   <div>
-    <%= render "star",post_image: @post_image %>
-   <div>
-<!--<div class='star-btn' id="favorite_<%#= @post_image.id %>">-->
-<!--  <%#= render "favorites/favorite", post: @post_image %>-->
-<!--</div>-->
-
-
-
-
-<div id="comments-area"><%= render 'post_comments/index', post_comments: @post_image.post_comments %></div>
-
-
-<div>
-<%= form_with(model:[@post_image, @post_comment], remote: true) do |f| %>
-  <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
-  <%= f.submit "送信する" %>
-<% end %>
-</div>
-
-<%= render_with_hashtags(@post_image.hashbody) %>
+       </div>
+     </div>

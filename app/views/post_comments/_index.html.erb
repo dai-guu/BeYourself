@@ -1,6 +1,6 @@
 <p>コメント数:<%= post_comments.count %></p>
 <% post_comments.each do |post_comment| %>
-  <p><%= image_tag('no_image.jpg') %></p>
+  <%= attachment_image_tag post_comment.user, :profile_image, fallback: "no_image.jpg", class:"comment-image", size: "40x40" %>
   <%= post_comment.user.name %>
   <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
           <% if post_comment.user == current_user %>
