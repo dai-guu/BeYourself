@@ -1,10 +1,14 @@
-<h1>投稿編集</h1>
+<h2>投稿編集</h2>
 <%= form_with model: @post_image, local:true do |f| %>
   <h4>画像</h4>
   <%= f.attachment_field :image %>
+  <h4>カテゴリー</h4>
+ <%= f.select :category, [["すべてのカテゴリー", "all"], ["Women", "women"], ["Men", "men"], ["Kids", "kids"], ["Business", "business"]], include_blank: "カテゴリーを選択してください" %>
   <h4>タイトル</h4>
   <%= f.text_field :title %>
   <h4>説明</h4>
   <%= f.text_area :body %>
+  <h4>ハッシュタグ入力欄</h4>
+  <%= f.text_area :hashbody, size:"55x3" %>
   <%= f.submit '保存' %>
 <% end %>

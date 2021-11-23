@@ -1,3 +1,4 @@
+<%= render 'post_images/category' %>
 <h1>Men</h1>
 <div class = "container">
   <div class = "row">
@@ -9,10 +10,10 @@
                <%= attachment_image_tag post_image, :image, format: 'jpeg', fallback: "no_image.jpg", size: '200x250' %>
              <% end %>
 
-           <p>投稿ユーザー画像：<%= attachment_image_tag post_image.user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: '50x50' %></p>
-           <p>タイトル：<%= post_image.title %></p>
-           <p>説明：<%= post_image.body %></p>
-           <p>ユーザーネーム：<%= post_image.user.name %></p>
+           <p>User：<%= attachment_image_tag post_image.user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: '50x50' %></p>
+           <p>Title：<%= post_image.title %></p>
+           <p>Introduction：<%= post_image.body %></p>
+           <p>Name：<%= post_image.user.name %></p>
 
            <p class="like_<%= post_image.id %>"><%= render "likes/like-btn", post_image: post_image %></p>
         </div>
@@ -22,4 +23,3 @@
   </div>
 </div>
 
-<%= paginate @post_images %>

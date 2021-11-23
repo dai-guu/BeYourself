@@ -2,7 +2,9 @@
 
  <h2><%= user.name %></h2>
    <div class="row">
-      <%= attachment_image_tag user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: '100x100' %>
+           <div class="user_profile_image">
+             <%= attachment_image_tag user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: '100x100', style: "border-radius:50%;"%>
+           </div>
 
            <div class="d-flex align-items-end">
              <% if user != current_user %>

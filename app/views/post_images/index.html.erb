@@ -1,10 +1,11 @@
 <%= render 'post_images/category' %> <br>
 
 <div class = "container">
-             <h2 class='title'>いいねランキング</h2>
+             <h2 class='title'><i class="fas fa-crown"></i> Ranking</h2>
+             <br>
               <div class="d-flex justify-content-center mb-4">
                 <div class='post_image-card-contents'>
-                   <!--<h2 class='title'>いいねランキング</h2>-->
+
                     <% @all_ranks.each.with_index(1) do |post_image, i| %>
                     第<%= i %>位
                     <%= link_to post_image_path(post_image.id) do %>
@@ -13,23 +14,12 @@
                    <% end %>
                </div>
               </div>
-
-  <div class = "row">
-
-
-
-
-
-
-       <%= render 'post_images/index', post_images: @post_images%>
-
-
-
-
-
-
-
-  </div>
+             <br>
+            <h2 class='title'><i class="fas fa-tshirt"></i> Coordinate</h2>
+            <br>
+          <div class = "row">
+           <%= render 'post_images/index', post_images: @post_images%>
+          </div>
  </div>
 <%= paginate @post_images %>
 

@@ -1,8 +1,12 @@
 class PostImage < ApplicationRecord
 
-belongs_to :user
-attachment :image
-has_many :post_comments, dependent: :destroy
+  belongs_to :user
+  attachment :image
+  has_many :post_comments, dependent: :destroy
+
+  validates :title, presence: true
+  validates :image, presence: true
+
 
   has_many :likes, dependent: :destroy
   def favorited_by?(user)

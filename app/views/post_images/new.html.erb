@@ -16,7 +16,7 @@
         <div class= "postimage-new-box">
             <% if @post_image.errors.any? %>
                 <div id="error_explanation">
-                    <h3><%= @post_image.errors.count %>件の入力エラーにより、投稿出来ませんでした</h3>
+                    <h3><%= @post_image.errors.count %>件の入力エラーにより、投稿出来ませんでした。</h3>
                     <ul>
                         <% @post_image.errors.full_messages.each do |msg| %>
                         <li><%= msg %></li>
@@ -29,14 +29,18 @@
             </div>
             <%= form_with model:@post_image, local: true do |f| %>
                 <div class="attachment-field">
-                    <p>画像を選択</p>
+                    <p>画像を選択 *</p>
                     <%= f.attachment_field :image %>
                 </div>
+                <br>
+                 <p>タイトル *</p>
+                   <%= f.text_field :title %>
                 <br>
                 <br>
                 <div class= "postimage-body-box">
                     <p>投稿の詳細を入力してください</p>
                     <%= f.text_area :body, size:"55x12" %>
+                    <br>
                     <br>
                     <p>ハッシュタグ入力欄</p>
                     <%= f.text_area :hashbody, size:"55x3" %>
@@ -48,6 +52,7 @@
                     <%= f.submit "新規投稿" ,class:'postimage-new-button' %>
                     </div>
             <% end %>
+                   <p5>*画像とタイトルは必ずご入力ください。</p5>
                 </div>
         </div>
     </div>
