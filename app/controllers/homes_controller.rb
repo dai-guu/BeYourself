@@ -1,12 +1,10 @@
 class HomesController < ApplicationController
-
   def top
   end
 
-
   def about
   end
-  
+
   def unsubscribe
     @user = User.find_by(name: params[:name])
   end
@@ -17,6 +15,4 @@ class HomesController < ApplicationController
     reset_session
     redirect_to root_path
   end
-  
-  
 end

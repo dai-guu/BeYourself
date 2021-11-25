@@ -1,0 +1,53 @@
+<% if @range == "User" %>
+  <h2>Users "<%= params[:word] %>"</h2>
+
+    <table class="table table-hover table-inverse">
+
+      <% if @users.present? %>
+
+      <thead>
+        <tr>
+          <th>image</th>
+          <th>name</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+      <tobdy>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= attachment_image_tag user, :profile_image, format: "jpeg", fallback: "no_image.jpg", size: "40x40" %></td>
+            <td><%= user.name %></td>
+            <td><%= link_to "Show", user_path(user) %></td>
+          </tr>
+        <% end %>
+      </tobdy>
+    </table>
+  <% else %>
+    該当のユーザーが見つかりませんでした
+  <% end %>
+<% else %>
+  <h2>Images "<%= params[:word] %>"</h2>
+  <% if @post_images.present? %>
+    <table class="table table-hover table-inverse">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Title</th>
+          <th>Opinion</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+      <tobdy>
+        <% @post_images.each do |post_image| %>
+          <tr>
+            <td><%= attachment_image_tag post_image.user, :profile_image, format: "jpeg", fallback: "no_image.jpg", size: "40x40" %></td>
+            <td><%= link_to post_image.title, post_image_path(post_image) %></td>
+            <td><%= post_image.body %></td>
+          </tr>
+        <% end %>
+      </tobdy>
+    </table>
+  <% else %>
+    該当の投稿が見つかりませんでした。
+  <% end %>
+<% end %>

@@ -29,8 +29,7 @@
              </div>
                       <div class="col-md-4">
                         <div class="card-right">
-                         <div class="card-right-comment">
-                          <!--<div class="card-right-name">-->
+                            <div class="card-right-comment">
                                 <div id="comments-area"><%= render 'post_comments/index', post_comments: @post_image.post_comments %></div>
 
                                 <div>
@@ -39,25 +38,13 @@
                                    <%= f.submit "送信する" %>
                                   <% end %>
                                 </div>
-
-                             <!--<%#= render_with_hashtags(@post_image.hashbody) %>-->
-
-                           <!--</div>-->
-
-
-
-                           <!--<p>aaaa</p>-->
-                           <!--<p>aaaa</p>-->
-                           <!--<p>aaaa</p>-->
-                           <!--<p>aaaa</p>-->
-                         </div>
-
+                            </div>
                         </div>
-                          <h5 class='title'><i class="fas fa-tags"></i> Tag</h5>
-                           <div class="m-4">
-                             <%= render_with_hashtags(@post_image.hashbody) %>
-                          </div>
-                     </div>
+                              <h5 class='title'><i class="fas fa-tags"></i> Tag</h5>
+                              <div class="m-4">
+                                <%= render_with_hashtags(@post_image.hashbody) %>
+                             </div>
+                      </div>
 
-       </div>
-     </div>
+       </div> <!---row(rb:4)-->
+     </div><!--col-md-10(rb:3)-->

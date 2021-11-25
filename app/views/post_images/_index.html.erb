@@ -1,6 +1,6 @@
 
 
-<% post_images.each do |post_image| %>
+<% post_images.includes([:user]).each do |post_image| %>
        <div class="col-lg-3 col-md-6 mb-4">
 
          <%= link_to post_image_path(post_image.id) do %>
