@@ -3,14 +3,14 @@
     <div class="col-md-3 col-md-offset-4 form-wrapper">
               <h2>プロフィール編集</h2>
                 <%= form_with model:@user, local:true do |f| %>
-             <label for="inputName">Name</label>
+             <label for="inputName">お名前</label>
                 <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前"%>
                 <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg"%>
                 <br>
-             <label for="inputImage">ProfileImage</label>
+             <label for="inputImage">プロフィール画像</label>
                 <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
 
-             <label for="inputIntroduction">Intoroduction</label>
+             <label for="inputIntroduction">自己紹介</label>
                 <%= f.text_area :introduction, autofocus: true, id:"inputIntroduction", placeholder:"自己紹介", size:"55x12"%>
                 <%= f.submit "変更を保存" %>
               <% end %>

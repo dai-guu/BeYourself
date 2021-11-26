@@ -31,12 +31,12 @@
                            </li>
                            <li>
                               <%= link_to destroy_user_session_path, method: :delete, class: "nav-link text-dark" do %>
-                              <i class="fas fa-sign-out-alt"></i> Logout
+                              <i class="fas fa-sign-out-alt"></i> ログアウト
                               <% end %>
                            </li>
                            <li>
                               <%= link_to user_path(current_user.id), class:"nav-link text-dark" do %>
-                              <i class="fas fa-users"></i> My page
+                              <i class="fas fa-users"></i> マイページ
                               <% end %>
                            </li>
                            <li>
@@ -47,17 +47,17 @@
                       <% else %>
                            <li>
                               <%= link_to new_user_registration_path, class: 'nav-link text-dark' do%>
-                              <i class="fas fa-user-plus"></i> sign up
+                              <i class="fas fa-user-plus"></i> 新規登録
                               <% end %>
                            </li>
                            <li>
                               <%= link_to new_user_session_path, class: "nav-link text-dark" do %>
-                              <i class="fas fa-sign-in-alt"></i> Login
+                              <i class="fas fa-sign-in-alt"></i> ログイン
                               <% end %>
                            </li>
                            <li>
                               <%= link_to "about", class: "nav-link text-dark" do%>
-                              <i class="fas fa-link"></i> About
+                              <i class="fas fa-link"></i> このサイトについて
                               <% end %>
                            </li>
                        <% end %>
