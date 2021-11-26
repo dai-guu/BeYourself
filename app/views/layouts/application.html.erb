@@ -11,7 +11,7 @@
   </head>
 
   <body>
-    <!--<div class="grid-container">-->
+
        <header>  <!--ヘッダーデザイン-->
       	<nav class="navbar navbar-expand-md navbar-light" style="background-color:#ffefd5;">
         <div class="container">
@@ -19,76 +19,60 @@
       	     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                <span class="navbar-toggler-icon"></span>
             </button>
-         <div class="collapse navbar-collapse" id="navbarNavDropdown">
-         <ul class="navbar-nav ml-auto">
 
+                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav ml-auto">
 
+                      <% if user_signed_in? %>
+                           <li>
+                              <%= link_to new_post_image_path, class: "nav-link text-dark" do %>
+                              <i class="fas fa-images"></i> 投稿する
+                              <% end %>
+                           </li>
+                           <li>
+                              <%= link_to destroy_user_session_path, method: :delete, class: "nav-link text-dark" do %>
+                              <i class="fas fa-sign-out-alt"></i> Logout
+                              <% end %>
+                           </li>
+                           <li>
+                              <%= link_to user_path(current_user.id), class:"nav-link text-dark" do %>
+                              <i class="fas fa-users"></i> My page
+                              <% end %>
+                           </li>
+                           <li>
+                              <%= link_to post_images_path, class: "nav-link text-dark" do %>
+                              <i class="fas fa-list-alt"></i> みんなの投稿
+                              <% end %>
+                           </li>
+                      <% else %>
+                           <li>
+                              <%= link_to new_user_registration_path, class: 'nav-link text-dark' do%>
+                              <i class="fas fa-user-plus"></i> sign up
+                              <% end %>
+                           </li>
+                           <li>
+                              <%= link_to new_user_session_path, class: "nav-link text-dark" do %>
+                              <i class="fas fa-sign-in-alt"></i> Login
+                              <% end %>
+                           </li>
+                           <li>
+                              <%= link_to "about", class: "nav-link text-dark" do%>
+                              <i class="fas fa-link"></i> About
+                              <% end %>
+                           </li>
+                       <% end %>
+                   </ul>
+                 </div> <!--/collapse navbar(br:22) -->
+           </div>   <!--/container(br:17) -->
+        </nav>
+     </header>
+     <main>
+       <%= yield %>
+     </main>
 
-    <% if user_signed_in? %>
+     <footer>
+       <p class="footer-text text-dark">Copyright ©2021 Be yourself, All Rights Reserved.</p>
+     </footer>
 
-        <li>
-          <%= link_to new_post_image_path, class: "nav-link text-dark" do %>
-          <i class="fas fa-images"></i> 投稿する
-         <% end %>
-        </li>
-
-        <li>
-          <%= link_to destroy_user_session_path, method: :delete, class: "nav-link text-dark" do %>
-          <i class="fas fa-sign-out-alt"></i> Logout
-          <% end %>
-        </li>
-
-        <li>
-          <%= link_to user_path(current_user.id), class:"nav-link text-dark" do %>
-          <i class="fas fa-users"></i> My page
-         <% end %>
-       </li>
-
-        <li>
-            <%= link_to post_images_path, class: "nav-link text-dark" do %>
-              <i class="fas fa-list-alt"></i> みんなの投稿
-            <% end %>
-        </li>
-
-    <% else %>
-         <li>
-           <%= link_to new_user_registration_path, class: 'nav-link text-dark' do%>
-             <i class="fas fa-user-plus"></i> sign up
-            <% end %>
-         </li>
-
-          <li>
-            <%= link_to new_user_session_path, class: "nav-link text-dark" do %>
-              <i class="fas fa-sign-in-alt"></i> Login
-            <% end %>
-          </li>
-
-           <li>
-             <%= link_to "about", class: "nav-link text-dark" do%>
-               <i class="fas fa-link"></i> About
-             <% end %>
-           </li>
-
-      <% end %>
-    </ul>
-    </div>
-    </div>
-  </nav>
- </header>
-
-
-       <main>
-         <%= yield %>
-       </main>
-
-
-
-    <!--<aside>サイドバー</aside>-->
-
-    <footer>
-      <p class="footer-text text-dark">Copyright ©2021 Be yourself, All Rights Reserved.</p>
-    </footer>
-<!--  </div>-->
-<!--</div>-->
-</body>
+  </body>
 </html>

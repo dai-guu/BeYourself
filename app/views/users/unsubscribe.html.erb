@@ -6,7 +6,7 @@
        <p>退会する場合は、『退会する』をクリックしてください。</p>
       </div>
     <div>
-     <%= link_to '退会しない', root_path, class: 'btn btn-primary' %>
+     <%= link_to '退会しない', user_path(current_user.id), class: 'btn btn-primary' %>
      <%= link_to "退会する", user_users_withdraw_path(current_user), method: :patch, class: 'btn btn-danger' %>
   </div>
 </div>

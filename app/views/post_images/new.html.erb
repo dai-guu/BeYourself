@@ -1,14 +1,3 @@
-<!--<h1>画像投稿フォーム</h1>-->
-<!--<%#= form_with model: @post_image, local:true do |f| %>-->
-<!--  <h4>画像</h4>-->
-<!--  <%#= f.attachment_field :image %>-->
-  <!--<h4>タイトル</h4>-->
-  <!--<%#= f.text_field :title %>-->
-<!--  <h4>説明</h4>-->
-<!--  <%#= f.text_area :caption %>-->
-<!--  <%#= f.submit '投稿' %>-->
-<!--<%# end %>-->
-
 <div class= "row">
     <div class="col-lg-2 col-md-2">
     </div>
@@ -43,19 +32,16 @@
                     <br>
                     <br>
                     <p>ハッシュタグ入力欄</p>
-                    <%= f.text_area :hashbody, size:"55x3" %>
-                    <br>
-                    <%#= f.label :content,"内容" %>
-                    <%#= f.text_field :content %>
+                    <%= f.text_field :hashbody, :value =>"#" %>
+                    <p>*複数の場合はスペースを開けて#(半角)からご入力ください。</p>
                     <%= f.select :category, [["すべてのカテゴリー", "all"], ["Women", "women"], ["Men", "men"], ["Kids", "kids"], ["Business", "business"]], include_blank: "カテゴリーを選択してください" %>
                     <div class= "postimage-new">
-                    <%= f.submit "新規投稿" ,class:'postimage-new-button' %>
+                    <br>
+                     <%= f.submit "新規投稿" ,class:'postimage-new-button' %>
                     </div>
             <% end %>
                    <p5>*画像とタイトルは必ずご入力ください。</p5>
                 </div>
         </div>
     </div>
-    <div class="col-lg-2 col-md-2">
-    </div>
-</div>
+</div> <!-- /row -->

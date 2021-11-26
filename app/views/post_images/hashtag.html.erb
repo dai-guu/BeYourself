@@ -50,10 +50,10 @@
               <div class="row">
                 <div class= "col-xs-12 col-lg-12 col-md-12 col-sm-12">
                   <div class= "hashtag-name">
-                    <div class= d-flex >
+                    <div class= "d-flex">
                         <% @hashtags.sort.reverse.each do |count| %>
                         <% count[1].each do |hashtag| %>
-                        <p><%= link_to  "##{hashtag.hashname} #{hashtag.post_images.count} 件","/post_image/hashtag/#{hashtag.hashname}",data: {"turbolinks" => false} %>
+                        <p class="text-center"><%= link_to  "##{hashtag.hashname} #{hashtag.post_images.count} 件","/post_image/hashtag/#{hashtag.hashname}",data: {"turbolinks" => false} %>
                         </p>
                         <% end %>
                        <% end %>
