@@ -6,7 +6,7 @@
             <div class="card-left">
 
                    <div class="img-container">
-                      <%= attachment_image_tag @post_image, :image, format: 'jpeg', fallback: "no_image.jpg", size: '600x700' %>
+                      <%= attachment_image_tag @post_image, :image, format: 'jpeg', fallback: "no_image.jpg", class: 'object-contain' %>
                         <div class="btn-toolbar">
                           <div class="btn-group">
                             <%= render "detail",post_image: @post_image %>
