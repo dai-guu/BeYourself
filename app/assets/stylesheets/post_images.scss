@@ -2,31 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-
-// サイドバー
-
-
-
 ul{
   list-style: none;
-  // padding: 0;
-  // margin: 0;
 }
-
-
-
 
 .List {
   display: flex;
   justify-content: center
 }
+
 .List-Item {
   position: relative;
   color: #808080;
   font-size: 20px;
   list-style: none;
 }
+
 .List-Item:before {
   position: absolute;
   top: 50%;
@@ -35,14 +26,13 @@ ul{
   transform: translate(-50%, -50%);
   color: #808080;
 }
+
 .List-Item-Link {
   padding-left: 40px;
   padding-right: 40px;
   text-decoration: none;
   color: inherit;
 }
-
-
 
 .post-wrap .col-md-8 {
   padding: 0px;
@@ -89,6 +79,12 @@ h2 {
     object-fit: cover;
   }
 }
+
+ .userlink{
+   color: #333;
+   display: inline-block;
+}
+
 
 @media screen and (max-width: 1100px) {
 .img-container img {

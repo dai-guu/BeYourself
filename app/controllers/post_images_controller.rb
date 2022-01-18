@@ -88,7 +88,7 @@ class PostImagesController < ApplicationController
 
   def search
     @range = params[:range]
-    if @range == "User"
+    if @range == "ユーザー"
       @users = User.looks(params[:word], params[:search])
     else
       @post_images = PostImage.looks(params[:word], params[:search])

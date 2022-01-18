@@ -1,18 +1,19 @@
 
 
 <% post_images.includes([:user]).each do |post_image| %>
-       <div class="col-lg-3 col-md-6 mb-4">
-
+  <div class="col-lg-3 col-md-6 mb-4">
          <%= link_to post_image_path(post_image.id) do %>
          <%= attachment_image_tag post_image, :image, format: 'jpeg', fallback: "no_image.jpg", class: 'object-cover' %>
       <% end %>
      <div class="user_profile_image">
-       <p>User : <%= attachment_image_tag post_image.user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: '50x50', style: "border-radius:50%;"%>
-       </p>
+       <%= link_to user_path(post_image.user_id) do %>
+        <span class='userlink'>User : <%= attachment_image_tag post_image.user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: '50x50', style: "border-radius:50%;"%>
+        </span>
+        <% end %>
      </div>
        <p>Title：<%= post_image.title %></p>
        <p>Name：<%= post_image.user.name %></p>
 
        <p class="like_<%= post_image.id %>"><%= render "likes/like-btn", post_image: post_image %></p>
-</div>
+  </div>
 <% end %>

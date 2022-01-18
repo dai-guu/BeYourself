@@ -1,5 +1,5 @@
-<% if @range == "User" %>
-  <h2>Users "<%= params[:word] %>"</h2>
+<% if @range == "ユーザー" %>
+  <h2>ユーザー "<%= params[:word] %>"</h2>
 
     <table class="table table-hover table-inverse">
 
@@ -26,7 +26,7 @@
     該当のユーザーが見つかりませんでした
   <% end %>
 <% else %>
-  <h2>Images "<%= params[:word] %>"</h2>
+  <h2>タイトル "<%= params[:word] %>"</h2>
   <% if @post_images.present? %>
     <table class="table table-hover table-inverse">
       <thead>
