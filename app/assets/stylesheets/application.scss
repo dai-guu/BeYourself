@@ -45,17 +45,21 @@ a{
   object-fit: cover;
 }
 
-
-.pagination>li>a {
-  border: none;     /*枠線をなくす*/
-  color: #696969;   /*文字の色を変える*/
+.pagination{
+  justify-content: center;
+}
+.page{
+  border: 1px solid #fac678;
+  border-radius: 100%;
+  margin-right: 3%;
+  width: 3%;
+  padding-left: 1%;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+}
+.next , .last{
+  padding-left: 1%;
 }
 
-/* 表示しているページ番号のデザイン */
-.pagination>.active>a {
-  background-color: #808080 !important;    /*背景の色を変える*/
-  border-radius: 15px !important;    /*角を丸くする*/
-}
 
 html, body {
   height: 100%;
