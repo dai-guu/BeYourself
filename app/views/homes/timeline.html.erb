@@ -1,0 +1,12 @@
+<% @feeds.each do |post_image| %>
+<div>
+  <div>
+    <%= link_to post_image.user.name, [post_image.user] %>
+  </div>
+</div>
+    <%= attachment_image_tag post_image, :image, format: 'jpeg', fallback: "no_image.jpg", class: 'object-cover' %>
+  </div>
+  <div>
+    <%= post_image.body %>
+  </div>
+  <% end %>

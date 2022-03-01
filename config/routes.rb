@@ -2,11 +2,12 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations',
-
   }
+
   get 'users/:id/profile', to: 'users#show', as: 'user_profile'
   root to: 'homes#top'
   get 'about' => 'homes#about'
+  get 'timeline' => 'homes#timeline'
 
   resources :users, only: [:show, :edit, :update, :unsubscribe, :hide, :withdraw] do
     resource :relationships, only: [:create, :destroy]

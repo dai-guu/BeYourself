@@ -15,4 +15,8 @@ class HomesController < ApplicationController
     reset_session
     redirect_to root_path
   end
+
+  def timeline
+    @feeds = PostImage.where(user_id: [current_user.id, *current_user.following_ids])
+  end
 end
