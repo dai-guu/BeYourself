@@ -2,33 +2,33 @@
           <div>
              <%= render 'users/userinfo', user: @user %>
           </div>
-
              <label for="inputIntroduction">自己紹介</label>
              <br>
              <p><%= @user.introduction %></p>
              <br>
              <br>
+             
               <p class="h5"><i class="fa fa-star" aria-hidden="true"></i>お気に入り</p>
                  <% if @favorites.present? %>
                     <ul class="relative-post_image-lists list-unstyled">
-                       <% @favorites.each do |favorite| %>
+                       <% @user.favorites.each do |favorite| %>
                          <div class="card">
                             <li class='post_image-list'>
-                              <%= link_to post_image_path(favorite.id) do %>
+                              <%= link_to post_image_path(favorite.post_image.id) do %>
                                 <div class="relative-post_image-evaluation">
                                   <span><i class="fas fa-tshirt" aria-hidden="true"></i></span>
                                   <span id="star-rate-<%= favorite.id %>"></span>
                                 </div>
+                               <% end %>
                                 <div class='user-img-content'>
-                                  <%= link_to favorite.user.name, user_path(favorite.user.id) %>
+                                  <%= link_to favorite.post_image.title, post_image_path(favorite.post_image.id) %>
                                 </div>
                                 <div class="relative-post_image-date">
                                   <i class="fas fa-calendar-alt"></i><%= favorite.created_at.strftime("%Y.%m.%d") %>
                                 </div>
-                              <% end %>
-                             </li>
-                          </div><!--<div card(br:16)> -->
-                      <% end %>
+                              </li>
+                          </div><!--<div card(br:15)> -->
+                       <% end %>
                     </ul>
                  <% end %>
 
@@ -43,8 +43,8 @@
                             <% end %>
                            </div>
                       </div>
-                   <% end %>
-                  </div>
+                    <% end %>
+                </div>
 </div><!-- /container -->
 
 
