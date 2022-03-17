@@ -51,16 +51,16 @@ class PostImage < ApplicationRecord
   end
 
   has_many :notifications, dependent: :destroy
-  
+
   def create_notification_comment!(current_user, comment_id)
-    
-    temp_ids = Comment.where(post_image_id: id).where.not("user_id=? or user_id=?", current_user.id,user_id).select(:user_id).distinct
-    
+
+    temp_ids = PostComment.where(post_image_id: id).where.not("user_id=? or user_id=?", current_user.id,user_id).select(:user_id).distinct
+
     temp_ids.each do |temp_id|
       save_notification_comment!(current_user, post_comment_id, temp_id['user_id'])
     end
-    
-    save_notification_comment!(current_user, post_comment_id, user_id)
+
+    save_notification_comment!(current_user, post_comment_id, user_id) if temp_ids.blank?
   end
 
   def save_notification_comment!(current_user, post_comment_id, visited_id)
