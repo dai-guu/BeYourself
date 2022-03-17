@@ -36,4 +36,7 @@ Rails.application.routes.draw do
   get 'post_images/category/business' => 'post_images#business'
 
   get 'search' => 'post_images#search'
+  
+  resources :notifications, only: [:index, :destroy]
+  
 end
