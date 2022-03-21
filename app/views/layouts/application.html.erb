@@ -15,13 +15,11 @@
       	<nav class="navbar navbar-light" style="background-color:#ffefd5;">
         <div class="container">
       	  <a href="/" class="navbar-brand">Be yourself</a>
-      	     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      	    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                <span class="navbar-toggler-icon"></span>
             </button>
-
                  <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav ml-auto">
-
                       <% if user_signed_in? %>
                            <li>
                               <%= link_to new_post_image_path, class: "nav-link text-dark" do %>
@@ -41,6 +39,11 @@
                            <li>
                               <%= link_to post_images_path, class: "nav-link text-dark" do %>
                               <i class="fas fa-list-alt"></i> みんなの投稿
+                              <% end %>
+                           </li>
+                           <li>
+                              <%= link_to notifications_path, class: "nav-link text-dark" do %>
+                              <i class="fas fa-bell"></i> 通知
                               <% end %>
                            </li>
                       <% else %>
