@@ -10,7 +10,7 @@
                <%= attachment_image_tag post_image, :image, format: 'jpeg', fallback: "no_image.jpg", size: '200x250' %>
              <% end %>
 
-           <p>User：<%= attachment_image_tag post_image.user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: '50x50' %></p>
+           <p>User：<%= attachment_image_tag post_image.user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: '50x50', style: "border-radius:50%;" %></p>
            <p>Title：<%= post_image.title %></p>
            <p>Introduction：<%= post_image.body %></p>
            <p>Name：<%= post_image.user.name %></p>
